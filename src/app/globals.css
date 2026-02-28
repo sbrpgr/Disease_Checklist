@@ -1,0 +1,17 @@
+﻿@import "tailwindcss";
+@import "pretendard/dist/web/variable/pretendardvariable.css";
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+}
+
+body {
+  background: linear-gradient(180deg, #eff6ff 0%, #f8fafc 25%, #f8fafc 100%);
+  color: var(--foreground);
+  font-family: "Pretendard Variable", Pretendard, -apple-system, sans-serif;
+}
+
+main {
+  padding-bottom: 48px;
+}
