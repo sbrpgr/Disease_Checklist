@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[97367,["/Disease_Checklist/_next/static/chunks/ff1a16fafef87110.js","/Disease_Checklist/_next/static/chunks/a2dfb6fc5208ab9b.js"],"ViewportBoundary"]
+3:I[97367,["/Disease_Checklist/_next/static/chunks/ff1a16fafef87110.js","/Disease_Checklist/_next/static/chunks/a2dfb6fc5208ab9b.js"],"MetadataBoundary"]
+4:"$Sreact.suspense"
+5:I[27201,["/Disease_Checklist/_next/static/chunks/ff1a16fafef87110.js","/Disease_Checklist/_next/static/chunks/a2dfb6fc5208ab9b.js"],"IconMark"]
+0:{"buildId":"ZIDUI9SHphi7ZVwPEhfpr","rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"질환 체크리스트 | 근거 기반 암 자가진단"}],["$","meta","1",{"name":"description","content":"13개 암종의 초기증상과 위험요인을 바탕으로 자가점검을 제공합니다."}],["$","link","2",{"rel":"icon","href":"/Disease_Checklist/favicon.ico?favicon.0b3bf435.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L5","3",{}]]}]}]}],null]}],"loading":null,"isPartial":false}

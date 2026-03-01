@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[22016,["/Disease_Checklist/_next/static/chunks/6205756f65a0543a.js","/Disease_Checklist/_next/static/chunks/7aeffe1004be0567.js"],""]
+3:I[97367,["/Disease_Checklist/_next/static/chunks/ff1a16fafef87110.js","/Disease_Checklist/_next/static/chunks/a2dfb6fc5208ab9b.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"buildId":"ZIDUI9SHphi7ZVwPEhfpr","rsc":["$","$1","c",{"children":[["$","div",null,{"className":"space-y-4 rounded-xl border bg-white p-8 text-center","children":[["$","h1",null,{"className":"text-3xl font-bold","children":"404"}],["$","p",null,{"children":"요청하신 페이지를 찾을 수 없습니다."}],["$","$L2",null,{"href":"/","className":"inline-block rounded bg-blue-600 px-4 py-2 text-white","children":"홈으로 이동"}]]}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
+5:null
