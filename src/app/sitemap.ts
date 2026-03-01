@@ -1,7 +1,9 @@
-﻿import type { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
 import { getAllCancers } from "@/data/cancers";
 import { newsItems } from "@/data/news";
 import { getSiteUrl } from "@/lib/metadata";
+
+export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = getSiteUrl();

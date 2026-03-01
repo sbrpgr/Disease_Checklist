@@ -1,21 +1,15 @@
-﻿import type { NextConfig } from "next";
+import type { NextConfig } from "next";
+
+const isGithubActions = process.env.GITHUB_ACTIONS === "true";
+const repository = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "";
+const basePath = isGithubActions && repository ? `/${repository}` : "";
 
 const nextConfig: NextConfig = {
-  images: {
-    formats: ["image/avif", "image/webp"],
-  },
-  async headers() {
-    return [
-      {
-        source: "/(.*)",
-        headers: [
-          { key: "X-Frame-Options", value: "DENY" },
-          { key: "X-Content-Type-Options", value: "nosniff" },
-          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-        ],
-      },
-    ];
-  },
+  output: "export",
+  trailingSlash: true,
+  images: { unoptimized: true },
+  basePath,
+  assetPrefix: basePath,
 };
 
 export default nextConfig;
