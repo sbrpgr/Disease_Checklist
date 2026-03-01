@@ -12,24 +12,30 @@ export function generateStaticParams() {
   return getAllCancers().map((cancer) => ({ slug: cancer.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const cancer = getCancerBySlug(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const cancer = getCancerBySlug(slug);
   if (!cancer) {
     return { title: "찾을 수 없는 암 정보" };
   }
   return generateCancerMetadata(cancer);
 }
 
-export default function CancerDetailPage({ params }: { params: { slug: string } }) {
-  const cancer = getCancerBySlug(params.slug);
+export default async function CancerDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const cancer = getCancerBySlug(slug);
   if (!cancer) notFound();
 
   const chartData = [
-    { stage: "1기", value: cancer.fiveYearSurvival.stage1 || 0 },
-    { stage: "2기", value: cancer.fiveYearSurvival.stage2 || 0 },
-    { stage: "3기", value: cancer.fiveYearSurvival.stage3 || 0 },
-    { stage: "4기", value: cancer.fiveYearSurvival.stage4 || 0 },
-  ];
+    cancer.fiveYearSurvival.stage1 !== undefined ? { stage: "1기", value: cancer.fiveYearSurvival.stage1 } : null,
+    cancer.fiveYearSurvival.stage2 !== undefined ? { stage: "2기", value: cancer.fiveYearSurvival.stage2 } : null,
+    cancer.fiveYearSurvival.stage3 !== undefined ? { stage: "3기", value: cancer.fiveYearSurvival.stage3 } : null,
+    cancer.fiveYearSurvival.stage4 !== undefined ? { stage: "4기", value: cancer.fiveYearSurvival.stage4 } : null,
+  ].filter((item): item is { stage: string; value: number } => item !== null);
+
+  if (chartData.length === 0 && cancer.fiveYearSurvival.overall !== undefined) {
+    chartData.push({ stage: "전체", value: cancer.fiveYearSurvival.overall });
+  }
 
   return (
     <article className="space-y-8">
@@ -77,6 +83,7 @@ export default function CancerDetailPage({ params }: { params: { slug: string } 
       <section className="space-y-2">
         <h2 className="text-lg font-semibold">5년 생존율(참고)</h2>
         <SurvivalRateChart data={chartData} />
+        <p className="text-xs text-slate-500">병기별 데이터가 없는 경우 해당 병기는 그래프에서 제외됩니다.</p>
       </section>
 
       <section className="rounded-xl border bg-white p-5">

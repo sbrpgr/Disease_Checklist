@@ -6,8 +6,9 @@ export function generateStaticParams() {
   return getAllCancers().map((cancer) => ({ slug: cancer.slug }));
 }
 
-export default function CancerCheckPage({ params }: { params: { slug: string } }) {
-  const cancer = getCancerBySlug(params.slug);
+export default async function CancerCheckPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const cancer = getCancerBySlug(slug);
   if (!cancer) notFound();
 
   return (

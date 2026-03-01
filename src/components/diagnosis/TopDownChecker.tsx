@@ -11,22 +11,25 @@ export function TopDownChecker({ cancer }: { cancer: Cancer }) {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, boolean>>({});
 
-  const current = cancer.checklist[step];
   const result = useMemo(() => calculateDiagnosisScore(cancer, answers), [cancer, answers]);
   const isDone = step >= cancer.checklist.length;
+  const isInterrupted = result.hasRedFlag;
+  const isFinished = isDone || isInterrupted;
+  const current = !isFinished ? cancer.checklist[step] : null;
 
   const onAnswer = (value: boolean) => {
+    if (!current || isFinished) return;
     setAnswers((prev) => ({ ...prev, [current.id]: value }));
     setStep((s) => s + 1);
   };
 
   return (
     <div className="space-y-4">
-      {!isDone ? (
+      {!isFinished && current ? (
         <ChecklistStep
           question={current.question}
           hint={current.hint}
-          progress={((step + 1) / cancer.checklist.length) * 100}
+          progress={(step / cancer.checklist.length) * 100}
           onYes={() => onAnswer(true)}
           onNo={() => onAnswer(false)}
         />

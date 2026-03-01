@@ -1,9 +1,50 @@
 ﻿export default function DisclaimerPage() {
   return (
-    <div className="prose prose-slate max-w-none rounded-xl border bg-white p-6">
-      <h1>의료 면책 고지</h1>
-      <p>이 서비스의 모든 자가진단 결과는 의학적 진단이 아닙니다.</p>
-      <p>증상이 지속되거나 악화될 경우 반드시 의료기관을 방문해 전문 진료를 받으세요.</p>
+    <div className="space-y-6 rounded-xl border bg-white p-6 text-slate-700">
+      <header className="space-y-2">
+        <h1 className="text-2xl font-bold text-slate-900">의료 면책 고지</h1>
+        <p className="text-sm leading-7">
+          본 서비스는 건강 정보 제공과 증상 점검 보조를 위한 도구이며, 의료행위 또는 의학적 진단을 제공하지 않습니다.
+        </p>
+      </header>
+
+      <section className="space-y-2 text-sm leading-7">
+        <h2 className="text-lg font-semibold text-slate-900">1. 비진단 서비스</h2>
+        <p>
+          체크리스트 결과는 사용자가 입력한 정보에 기반한 참고 지표입니다. 동일한 증상이라도 개인의 병력, 복용약, 동반 질환,
+          검사결과에 따라 위험도가 크게 달라질 수 있으므로, 서비스 결과만으로 질환 유무를 판단해서는 안 됩니다.
+        </p>
+      </section>
+
+      <section className="space-y-2 text-sm leading-7">
+        <h2 className="text-lg font-semibold text-slate-900">2. 응급 상황 우선 원칙</h2>
+        <p>
+          호흡곤란, 흉통, 의식저하, 대량 출혈, 신경학적 이상(마비/언어장애) 등 응급 증상이 있는 경우에는 서비스 이용을 중단하고 즉시
+          119 또는 응급실을 이용해야 합니다. 온라인 정보 탐색은 응급 처치를 대체할 수 없습니다.
+        </p>
+      </section>
+
+      <section className="space-y-2 text-sm leading-7">
+        <h2 className="text-lg font-semibold text-slate-900">3. 정보의 한계</h2>
+        <p>
+          본 서비스는 공개된 가이드라인과 일반적인 의학 정보를 요약해 제공하며, 개별 의료기관의 최신 진료 프로토콜과 다를 수 있습니다.
+          통계 수치와 권고안은 국가/기관/발표 시점에 따라 변동될 수 있으므로, 실제 진료에서는 담당 의료진의 판단을 우선합니다.
+        </p>
+      </section>
+
+      <section className="space-y-2 text-sm leading-7">
+        <h2 className="text-lg font-semibold text-slate-900">4. 이용자 책임</h2>
+        <p>
+          이용자는 본 서비스를 정보 탐색 목적으로 사용해야 하며, 증상 악화나 이상 소견이 있을 경우 적절한 시점에 의료기관을 방문할
+          책임이 있습니다. 서비스 운영자는 이용자의 지연 진료 또는 자가판단으로 발생한 직접적/간접적 손해에 대해 법령상 허용 범위에서
+          책임을 제한할 수 있습니다.
+        </p>
+      </section>
+
+      <section className="space-y-2 text-sm leading-7">
+        <h2 className="text-lg font-semibold text-slate-900">5. 시행일</h2>
+        <p>본 고지는 2026년 3월 1일부터 적용됩니다.</p>
+      </section>
     </div>
   );
 }
